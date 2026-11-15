@@ -1,0 +1,23 @@
+# Syntecxhub Identity
+
+> Enterprise Access Governance, Workforce Directory & IAM Security Telemetry platform.
+
+## Overview
+Syntecxhub Identity is an enterprise-grade Identity & Access Management (IAM) suite engineered with Nuxt 4 (SSR Nitro) and NestJS (Mongoose/MongoDB). It provides high-speed workforce directories, real-time role governance, and cryptographic zero-trust audit telemetry.
+
+## Core Capabilities
+- **Workforce Directory**: Search, filter, and audit team members across departments with real-time reactive filters.
+- **Role-Based Access Control (RBAC)**: Support for Admin, Manager, Editor, and Viewer roles with strict server-side validation.
+- **Security Audit Logs**: Track security logins, permission elevation, and administrative changes in real time.
+- **OpenAPI Architecture**: Standardized RESTful endpoints documented via Swagger / OpenAPI at `/api-docs`.
+
+## Key URLs
+- Homepage / Dashboard: https://identity.syntecxhub.com/
+- User Directory: https://identity.syntecxhub.com/users
+- System Configuration: https://identity.syntecxhub.com/settings
+- OpenAPI Explorer: https://identity.syntecxhub.com/api-docs
+
+## Technical Stack
+- Frontend: Nuxt 4.6, Vue 3.5, Tailwind CSS, Pinia
+- Backend: NestJS 11, MongoDB 8, TypeScript
+- Authentication: Internal SSR key exchange, Zero-Trust headers
