@@ -134,6 +134,35 @@ const getRoleBadgeClass = (role: string) => {
       </div>
     </div>
 
+    <!-- Executive Governance & Compliance Strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="rounded-xl border border-indigo-950/60 bg-[#0E1528] p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">MFA Enforcement</span>
+          <span class="text-xl font-extrabold text-indigo-400">94.8%</span>
+        </div>
+        <div class="h-10 w-10 rounded-full border-2 border-indigo-500/40 border-t-indigo-400 flex items-center justify-center font-bold text-xs text-indigo-300">
+          95%
+        </div>
+      </div>
+
+      <div class="rounded-xl border border-indigo-950/60 bg-[#0E1528] p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Active SSO Tokens</span>
+          <span class="text-xl font-extrabold text-emerald-400">1,284 Sessions</span>
+        </div>
+        <div class="h-3 w-3 rounded-full bg-emerald-400 animate-pulse" />
+      </div>
+
+      <div class="rounded-xl border border-indigo-950/60 bg-[#0E1528] p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Zero-Trust Policy</span>
+          <span class="text-xl font-extrabold text-purple-400">Strict Compliant</span>
+        </div>
+        <ShieldCheck class="h-6 w-6 text-purple-400" />
+      </div>
+    </div>
+
     <!-- Split Grid: Recent Members and Activity Stream -->
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <!-- Team Directory Feed -->

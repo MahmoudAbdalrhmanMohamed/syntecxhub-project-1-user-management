@@ -39,6 +39,15 @@ const debouncedSearch = useDebounceFn(() => {
   usersStore.fetchUsers();
 }, 300);
 
+const activeDepartment = ref('');
+
+const selectDepartment = (dept: string) => {
+  activeDepartment.value = dept === 'All Departments' ? '' : dept;
+  usersStore.filters.search = activeDepartment.value;
+  usersStore.filters.page = 1;
+  usersStore.fetchUsers();
+};
+
 const handleFilterChange = () => {
   usersStore.filters.page = 1;
   usersStore.fetchUsers();
@@ -179,6 +188,24 @@ const handleDeleteUser = async (user: UserRecord) => {
       <button type="button" class="btn-primary" @click="openCreateModal">
         <UserPlus class="h-4 w-4" />
         Add New User
+      </button>
+    </div>
+
+    <!-- Department Filter Tabs Ribbon (Enterprise Workspace Pattern) -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-1 select-none">
+      <button
+        v-for="dept in ['All Departments', 'Engineering', 'Product', 'Design', 'Operations', 'Security']"
+        :key="dept"
+        type="button"
+        class="rounded-xl px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer border border-transparent"
+        :class="
+          (dept === 'All Departments' && !activeDepartment) || activeDepartment === dept
+            ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/30'
+            : 'text-slate-600 dark:text-slate-400 hover:text-indigo-400 hover:bg-indigo-950/40 border-slate-200 dark:border-indigo-950/60'
+        "
+        @click="selectDepartment(dept)"
+      >
+        {{ dept }}
       </button>
     </div>
 
