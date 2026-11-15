@@ -298,7 +298,7 @@ const handleDeleteUser = async (user: UserRecord) => {
                   <div class="min-w-0">
                     <button
                       type="button"
-                      class="font-semibold text-slate-900 dark:text-slate-100 hover:text-sky-500 text-left truncate block"
+                      class="font-semibold text-slate-900 dark:text-slate-100 hover:text-indigo-500 text-left truncate block"
                       @click="openDetailsDrawer(user)"
                     >
                       {{ user.fullName }}
@@ -311,7 +311,7 @@ const handleDeleteUser = async (user: UserRecord) => {
               </td>
 
               <td class="px-4 py-3.5">
-                <p class="text-xs font-medium text-slate-800 dark:text-slate-200">
+                <p class="text-xs font-semibold text-slate-800 dark:text-slate-200">
                   {{ user.department || 'Operations' }}
                 </p>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">
@@ -321,13 +321,13 @@ const handleDeleteUser = async (user: UserRecord) => {
 
               <td class="px-4 py-3.5">
                 <span
-                  class="inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold capitalize"
+                  class="inline-flex items-center rounded-lg px-2.5 py-0.5 text-xs font-semibold capitalize"
                   :class="{
-                    'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20':
+                    'bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20':
                       user.role === 'admin',
                     'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20':
                       user.role === 'manager',
-                    'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20':
+                    'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20':
                       user.role === 'editor',
                     'bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20':
                       user.role === 'viewer',
