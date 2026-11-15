@@ -63,16 +63,14 @@ const toggleTheme = () => {
     <!-- Brand Header -->
     <div class="flex h-16 items-center justify-between border-b border-slate-200/90 dark:border-indigo-950/60 px-4">
       <NuxtLink to="/" class="flex items-center gap-3 min-w-0">
-        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white shadow-md shadow-indigo-500/25">
-          <ShieldCheck class="h-5 w-5" />
-        </div>
+        <BrandProjectLogo :size="'md'" />
         <div v-if="!uiStore.sidebarCollapsed" class="min-w-0">
           <div class="flex items-center gap-1.5">
             <span class="truncate text-sm font-bold tracking-tight text-slate-900 dark:text-white block">
-              SyntheIAM
+              Syntecxhub
             </span>
-            <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60">
-              P1
+            <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
+              IAM
             </span>
           </div>
           <p class="truncate text-[11px] text-slate-500 dark:text-slate-400 font-medium">
