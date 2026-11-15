@@ -54,15 +54,22 @@ const toggleTheme = () => {
   />
 
   <aside
-    class="fixed inset-y-0 left-0 z-40 flex flex-col border-r border-slate-200/90 dark:border-indigo-950/60 bg-white dark:bg-[#0A0E1A] transition-all duration-200 lg:static"
+    class="fixed inset-y-0 left-0 z-40 flex flex-col border-r border-slate-200/90 dark:border-indigo-950/60 bg-white dark:bg-[#0A0E1A] transition-all duration-200 lg:sticky lg:top-0 lg:h-screen lg:shrink-0"
     :class="[
       uiStore.sidebarCollapsed ? 'w-20' : 'w-64',
       uiStore.mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
     ]"
   >
     <!-- Brand Header -->
-    <div class="flex h-16 items-center justify-between border-b border-slate-200/90 dark:border-indigo-950/60 px-4">
-      <NuxtLink to="/" class="flex items-center gap-3 min-w-0">
+    <div
+      class="flex h-16 items-center border-b border-slate-200/90 dark:border-indigo-950/60 transition-all duration-200"
+      :class="uiStore.sidebarCollapsed ? 'justify-center px-2 relative' : 'justify-between px-4'"
+    >
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-3 min-w-0"
+        :title="uiStore.sidebarCollapsed ? 'Syntecxhub IAM' : undefined"
+      >
         <BrandProjectLogo :size="'md'" />
         <div v-if="!uiStore.sidebarCollapsed" class="min-w-0">
           <div class="flex items-center gap-1.5">
@@ -79,14 +86,23 @@ const toggleTheme = () => {
         </div>
       </NuxtLink>
 
+      <!-- Desktop Toggle Button -->
       <button
         type="button"
-        class="hidden lg:inline-flex rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 dark:hover:bg-indigo-950/60 transition-colors"
+        class="hidden lg:inline-flex rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-indigo-950/60 transition-all cursor-pointer"
+        :class="
+          uiStore.sidebarCollapsed
+            ? 'absolute -right-3 top-5 z-50 h-6 w-6 rounded-full border border-slate-200 dark:border-indigo-900/80 bg-white dark:bg-[#0F162A] shadow-md p-0 items-center justify-center text-slate-400 hover:text-white'
+            : 'p-1.5'
+        "
+        :title="uiStore.sidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'"
         @click="uiStore.toggleSidebar"
       >
-        <PanelLeftOpen v-if="uiStore.sidebarCollapsed" class="h-4 w-4" />
+        <PanelLeftOpen v-if="uiStore.sidebarCollapsed" class="h-3.5 w-3.5" />
         <PanelLeftClose v-else class="h-4 w-4" />
       </button>
+
+      <!-- Mobile Close Button -->
       <button type="button" class="lg:hidden rounded-lg p-1.5 text-slate-400" @click="uiStore.closeMobileSidebar">
         <X class="h-4 w-4" />
       </button>
@@ -106,12 +122,14 @@ const toggleTheme = () => {
           v-for="item in group.items"
           :key="item.to"
           :to="item.to"
-          class="group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-150"
-          :class="
+          :title="uiStore.sidebarCollapsed ? item.label : undefined"
+          class="group relative flex items-center rounded-xl text-sm font-medium transition-all duration-150"
+          :class="[
+            uiStore.sidebarCollapsed ? 'justify-center w-12 h-10 mx-auto px-0' : 'gap-3 px-3 py-2.5',
             isActive(item.to)
               ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/30'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-300'
-          "
+              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-300',
+          ]"
         >
           <component :is="item.icon" class="h-4 w-4 shrink-0" />
           <span v-if="!uiStore.sidebarCollapsed" class="truncate flex-1">{{ item.label }}</span>
@@ -138,12 +156,18 @@ const toggleTheme = () => {
 
       <button
         type="button"
-        class="flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-indigo-950/80 bg-white dark:bg-[#0E1322] px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:border-indigo-400 transition-colors"
+        class="flex items-center rounded-xl border border-slate-200 dark:border-indigo-950/80 bg-white dark:bg-[#0E1322] font-medium text-slate-700 dark:text-slate-300 hover:border-indigo-400 transition-colors cursor-pointer"
+        :class="
+          uiStore.sidebarCollapsed
+            ? 'w-12 h-10 mx-auto justify-center px-0'
+            : 'w-full justify-between px-3 py-2 text-xs'
+        "
+        :title="colorMode.value === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
         @click="toggleTheme"
       >
         <span class="flex items-center gap-2">
-          <Sun v-if="colorMode.value === 'dark'" class="h-4 w-4 text-amber-400" />
-          <Moon v-else class="h-4 w-4 text-indigo-600" />
+          <Sun v-if="colorMode.value === 'dark'" class="h-4 w-4 text-amber-400 shrink-0" />
+          <Moon v-else class="h-4 w-4 text-indigo-600 shrink-0" />
           <span v-if="!uiStore.sidebarCollapsed">{{ colorMode.value === 'dark' ? 'Light Mode' : 'Dark Mode' }}</span>
         </span>
       </button>

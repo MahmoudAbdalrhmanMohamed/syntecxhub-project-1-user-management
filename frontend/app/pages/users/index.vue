@@ -198,40 +198,48 @@ const handleDeleteUser = async (user: UserRecord) => {
           />
         </div>
 
-        <select
+        <UiCustomSelect
           v-model="usersStore.filters.role"
-          class="input-field"
+          :options="[
+            { label: 'All Roles', value: '' },
+            { label: 'Admin', value: 'admin' },
+            { label: 'Manager', value: 'manager' },
+            { label: 'Editor', value: 'editor' },
+            { label: 'Viewer', value: 'viewer' },
+          ]"
+          placeholder="All Roles"
+          theme="indigo"
+          class="w-full sm:w-40"
           @change="handleFilterChange"
-        >
-          <option value="">All Roles</option>
-          <option value="admin">Admin</option>
-          <option value="manager">Manager</option>
-          <option value="editor">Editor</option>
-          <option value="viewer">Viewer</option>
-        </select>
+        />
 
-        <select
+        <UiCustomSelect
           v-model="usersStore.filters.status"
-          class="input-field"
+          :options="[
+            { label: 'All Statuses', value: '' },
+            { label: 'Active', value: 'active' },
+            { label: 'Inactive', value: 'inactive' },
+            { label: 'Suspended', value: 'suspended' },
+          ]"
+          placeholder="All Statuses"
+          theme="indigo"
+          class="w-full sm:w-40"
           @change="handleFilterChange"
-        >
-          <option value="">All Statuses</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-          <option value="suspended">Suspended</option>
-        </select>
+        />
 
         <div class="flex items-center gap-2">
-          <select
+          <UiCustomSelect
             v-model="usersStore.filters.sortBy"
-            class="input-field"
+            :options="[
+              { label: 'Newest Joined', value: 'createdAt' },
+              { label: 'Name (A–Z)', value: 'fullName' },
+              { label: 'Role', value: 'role' },
+              { label: 'Status', value: 'status' },
+            ]"
+            theme="indigo"
+            class="w-full sm:w-44"
             @change="handleFilterChange"
-          >
-            <option value="createdAt">Newest Joined</option>
-            <option value="fullName">Name (A–Z)</option>
-            <option value="role">Role</option>
-            <option value="status">Status</option>
-          </select>
+          />
           <button
             type="button"
             class="btn-secondary shrink-0 px-3"
@@ -511,23 +519,33 @@ const handleDeleteUser = async (user: UserRecord) => {
                 <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                   Role *
                 </label>
-                <select v-model="formState.role" class="input-field">
-                  <option value="admin">Admin</option>
-                  <option value="manager">Manager</option>
-                  <option value="editor">Editor</option>
-                  <option value="viewer">Viewer</option>
-                </select>
+                <UiCustomSelect
+                  v-model="formState.role"
+                  :options="[
+                    { label: 'Admin', value: 'admin' },
+                    { label: 'Manager', value: 'manager' },
+                    { label: 'Editor', value: 'editor' },
+                    { label: 'Viewer', value: 'viewer' },
+                  ]"
+                  placeholder="Select Role"
+                  theme="indigo"
+                />
               </div>
 
               <div>
                 <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                   Account Status *
                 </label>
-                <select v-model="formState.status" class="input-field">
-                  <option value="active">Active</option>
-                  <option value="inactive">Inactive</option>
-                  <option value="suspended">Suspended</option>
-                </select>
+                <UiCustomSelect
+                  v-model="formState.status"
+                  :options="[
+                    { label: 'Active', value: 'active' },
+                    { label: 'Inactive', value: 'inactive' },
+                    { label: 'Suspended', value: 'suspended' },
+                  ]"
+                  placeholder="Select Status"
+                  theme="indigo"
+                />
               </div>
 
               <div class="sm:col-span-2">
