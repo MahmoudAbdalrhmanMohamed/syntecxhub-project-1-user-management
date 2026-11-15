@@ -116,4 +116,56 @@ test.describe('Syntecxhub Project 1 — User Management System', () => {
       fullPage: true,
     });
   });
+
+  test('06 - Custom select dropdown displays theme-styled popover and active options', async ({ page }) => {
+    await page.goto('/users');
+    await page.waitForLoadState('networkidle');
+
+    // Click on custom select dropdown for Role
+    const selectTrigger = page.locator('button:has-text("All Roles")');
+    await expect(selectTrigger).toBeVisible();
+    await selectTrigger.click();
+    await page.waitForTimeout(300);
+
+    // Verify popover options list is visible
+    const adminOption = page.locator('button:has-text("Admin")');
+    await expect(adminOption).toBeVisible();
+
+    // Capture screenshot with dropdown open
+    await page.screenshot({
+      path: path.join(screenshotsDir, '06-custom-select-dropdown-open.png'),
+    });
+
+    // Select Admin option
+    await adminOption.click();
+    await page.waitForTimeout(300);
+    await expect(page.locator('button:has-text("Admin")')).toBeVisible();
+  });
+
+  test('07 - Sidebar collapse & expand via Topbar and bottom rail toggle', async ({ page }) => {
+    await page.goto('/users');
+    await page.waitForLoadState('networkidle');
+
+    // Collapse via Topbar toggle button
+    const topbarToggle = page.locator('header button[aria-label="Toggle Sidebar Navigation"]');
+    await expect(topbarToggle).toBeVisible();
+    await topbarToggle.click();
+    await page.waitForTimeout(400);
+
+    // Verify sidebar is collapsed (w-20 class present on aside)
+    const aside = page.locator('aside');
+    await expect(aside).toHaveClass(/w-20/);
+
+    // Capture screenshot of shrunk sidebar
+    await page.screenshot({
+      path: path.join(screenshotsDir, '07-shrunk-sidebar.png'),
+    });
+
+    // Re-expand via rail toggle button at bottom
+    const railToggle = page.locator('aside button[aria-label="Toggle Sidebar Rail"]');
+    await expect(railToggle).toBeVisible();
+    await railToggle.click();
+    await page.waitForTimeout(400);
+    await expect(aside).toHaveClass(/w-64/);
+  });
 });
