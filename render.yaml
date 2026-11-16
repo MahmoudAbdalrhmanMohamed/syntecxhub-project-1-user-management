@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: syntecxhub-p1-backend
+    name: aegis-identity-backend
     runtime: node
     plan: free
     region: oregon
@@ -21,7 +21,7 @@ services:
         sync: false
 
   - type: web
-    name: syntecxhub-p1-frontend
+    name: aegis-identity-frontend
     runtime: node
     plan: free
     region: oregon

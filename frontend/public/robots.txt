@@ -1,5 +1,5 @@
 # ==============================================================================
-# Syntecxhub Identity — Robots Configuration
+# Aegis Identity — Robots Configuration
 # Technical SEO & Generative Engine Optimization (GEO) Directives
 # ==============================================================================
 
@@ -9,8 +9,8 @@ Disallow: /api/
 Disallow: /_nuxt/
 
 # Sitemaps for Search Engines
-Sitemap: https://identity.syntecxhub.com/sitemap.xml
-Sitemap: https://syntecxhub-identity.vercel.app/sitemap.xml
+Sitemap: https://identity.aegisauth.io/sitemap.xml
+Sitemap: https://aegis-identity.vercel.app/sitemap.xml
 
 # LLM & Generative Engine Crawlers (Explicitly Allowed for GEO)
 User-agent: GPTBot

@@ -11,7 +11,7 @@ describe('DashboardService (Project 1 - Users)', () => {
       {
         _id: '673700000000000000000001',
         fullName: 'Mahmoud Abdalrahman',
-        email: 'mahmoud.abdalrahman@syntecxhub.io',
+        email: 'mahmoud.abdalrahman@aegisauth.io',
         role: 'admin',
         status: 'active',
         department: 'Platform Architecture',

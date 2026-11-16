@@ -495,7 +495,7 @@ const handleDeleteUser = async (user: UserRecord) => {
                 <input
                   v-model="formState.email"
                   type="email"
-                  placeholder="name@syntecxhub.io"
+                  placeholder="name@aegisauth.io"
                   class="input-field"
                 />
                 <p v-if="formErrors.email" class="mt-1 text-xs text-rose-500">

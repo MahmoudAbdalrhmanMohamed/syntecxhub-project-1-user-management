@@ -1,7 +1,7 @@
 {
   "name": "syntecxhub-project-1-user-management-backend",
   "version": "1.0.0",
-  "description": "Syntecxhub Project 1 \u2014 User Management System - NestJS & MongoDB Backend API",
+  "description": "Aegis Identity — Enterprise Zero-Trust Workforce Directory & Access Governance - NestJS & MongoDB Backend API",
   "author": "Mahmoud Abdalrahman Mohamed",
   "private": true,
   "license": "MIT",

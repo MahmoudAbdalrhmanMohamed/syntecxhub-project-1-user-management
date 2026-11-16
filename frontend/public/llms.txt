@@ -1,9 +1,9 @@
-# Syntecxhub Identity
+# Aegis Identity
 
 > Enterprise Access Governance, Workforce Directory & IAM Security Telemetry platform.
 
 ## Overview
-Syntecxhub Identity is an enterprise-grade Identity & Access Management (IAM) suite engineered with Nuxt 4 (SSR Nitro) and NestJS (Mongoose/MongoDB). It provides high-speed workforce directories, real-time role governance, and cryptographic zero-trust audit telemetry.
+Aegis Identity is an enterprise-grade Identity & Access Management (IAM) suite engineered with Nuxt 4 (SSR Nitro) and NestJS (Mongoose/MongoDB). It provides high-speed workforce directories, real-time role governance, and cryptographic zero-trust audit telemetry.
 
 ## Core Capabilities
 - **Workforce Directory**: Search, filter, and audit team members across departments with real-time reactive filters.
@@ -12,10 +12,10 @@ Syntecxhub Identity is an enterprise-grade Identity & Access Management (IAM) su
 - **OpenAPI Architecture**: Standardized RESTful endpoints documented via Swagger / OpenAPI at `/api-docs`.
 
 ## Key URLs
-- Homepage / Dashboard: https://identity.syntecxhub.com/
-- User Directory: https://identity.syntecxhub.com/users
-- System Configuration: https://identity.syntecxhub.com/settings
-- OpenAPI Explorer: https://identity.syntecxhub.com/api-docs
+- Homepage / Dashboard: https://identity.aegisauth.io/
+- User Directory: https://identity.aegisauth.io/users
+- System Configuration: https://identity.aegisauth.io/settings
+- OpenAPI Explorer: https://identity.aegisauth.io/api-docs
 
 ## Technical Stack
 - Frontend: Nuxt 4.6, Vue 3.5, Tailwind CSS, Pinia

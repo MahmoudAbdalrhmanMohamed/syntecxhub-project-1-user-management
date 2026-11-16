@@ -1,4 +1,4 @@
-# Syntecxhub Project 1 — User Management System
+# Aegis Identity — Zero-Trust Workforce Access Governance
 
 Standalone enterprise User Directory & Role Administration full-stack platform (Project 1).
 
@@ -9,7 +9,7 @@ Built with **Nuxt 4 (Vue 3 Composition API, Strict TypeScript, Tailwind CSS, Pin
 - `frontend/` — Complete Nuxt 4 SSR application (`app/pages/`, `app/components/`, `app/layouts/`, `app/composables/`, `app/stores/`, `app/middleware/`, `app/plugins/`, `shared/`, `server/`).
 - `backend/` — Complete NestJS application (`src/users/`, `src/dashboard/`, `src/common/`, `src/config/`, `src/seed/`).
 - `postman/` — Postman API collection for this project.
-- `docker-compose.yml` — Container orchestration for MongoDB (`syntecxhub_users_db`), NestJS Backend (`:4000`), and Nuxt 4 Frontend (`:3000`).
+- `docker-compose.yml` — Container orchestration for MongoDB (`aegis_identity_db`), NestJS Backend (`:4001`), and Nuxt 4 Frontend (`:3001`).
 - `.env.example` — Environment configuration template.
 
 ## Quick Start
@@ -32,6 +32,6 @@ npm install
 npm run dev
 ```
 
-- **Frontend UI**: `http://localhost:3000`
-- **Backend API**: `http://localhost:4000/api`
-- **Swagger OpenAPI UI**: `http://localhost:4000/api/docs`
+- **Frontend UI**: `http://localhost:3001`
+- **Backend API**: `http://localhost:4001/api`
+- **Swagger OpenAPI UI**: `http://localhost:4001/api/docs`

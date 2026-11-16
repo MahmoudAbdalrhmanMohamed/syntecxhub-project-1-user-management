@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Syntecxhub Project 1 — User Management System - Nuxt 4 SSR Frontend",
+  "description": "Aegis Identity — Enterprise Zero-Trust Workforce Directory & Access Governance - Nuxt 4 SSR Frontend",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3001",

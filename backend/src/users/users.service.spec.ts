@@ -10,7 +10,7 @@ describe('UsersService', () => {
   const mockUser = {
     _id: '673700000000000000000001',
     fullName: 'Mahmoud Abdalrahman',
-    email: 'mahmoud.abdalrahman@syntecxhub.io',
+    email: 'mahmoud.abdalrahman@aegisauth.io',
     phoneNumber: '+20 100 512 8400',
     role: UserRole.ADMIN,
     status: UserStatus.ACTIVE,
@@ -79,7 +79,7 @@ describe('UsersService', () => {
     await expect(
       service.create({
         fullName: 'Duplicate User',
-        email: 'mahmoud.abdalrahman@syntecxhub.io',
+        email: 'mahmoud.abdalrahman@aegisauth.io',
         phoneNumber: '+20 100 000 0000',
         role: UserRole.VIEWER,
         status: UserStatus.ACTIVE,

@@ -14,7 +14,7 @@ import {
 } from 'lucide-vue-next';
 
 useSeoMeta({
-  title: 'Workforce Directory — Syntecxhub Identity',
+  title: 'Workforce Directory — Aegis Identity',
   description: 'Enterprise directory analytics, role governance, and identity telemetry.',
 });
 
@@ -48,7 +48,7 @@ const getRoleBadgeClass = (role: string) => {
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-xs font-semibold">
             <ShieldCheck class="h-3.5 w-3.5 text-indigo-500" />
-            <span>SYNTECXHUB IDENTITY // ACCESS GOVERNANCE</span>
+            <span>AEGIS IDENTITY // ACCESS GOVERNANCE</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Organization User Directory

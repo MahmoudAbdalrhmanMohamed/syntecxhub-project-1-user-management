@@ -2,7 +2,7 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 
-const siteUrl = 'https://identity.syntecxhub.com';
+const siteUrl = 'https://identity.aegisauth.io';
 const currentUrl = computed(() => `${siteUrl}${route.path}`);
 
 const jsonLdData = computed(() => {
@@ -11,8 +11,8 @@ const jsonLdData = computed(() => {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Syntecxhub Enterprise',
-      url: 'https://syntecxhub.com',
+      name: 'Aegis Security Systems',
+      url: 'https://aegisauth.io',
       logo: `${siteUrl}/favicon.svg`,
       sameAs: [
         'https://github.com/MahmoudAbdalrhmanMohamed/syntecxhub-project-1-user-management',
@@ -20,7 +20,7 @@ const jsonLdData = computed(() => {
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'technical support',
-        email: 'security@syntecxhub.com',
+        email: 'security@aegisauth.io',
       },
     },
 
@@ -28,7 +28,7 @@ const jsonLdData = computed(() => {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Syntecxhub Identity',
+      name: 'Aegis Identity',
       url: siteUrl,
       potentialAction: {
         '@type': 'SearchAction',
@@ -41,7 +41,7 @@ const jsonLdData = computed(() => {
     {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
-      name: 'Syntecxhub Identity',
+      name: 'Aegis Identity',
       operatingSystem: 'Cloud / Linux / Windows / macOS',
       applicationCategory: 'SecurityApplication',
       softwareVersion: '1.0.0',
@@ -68,34 +68,34 @@ const jsonLdData = computed(() => {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What is Syntecxhub Identity?',
+          name: 'What is Aegis Identity?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Syntecxhub Identity is an enterprise workforce directory and access governance platform that provides centralized role-based access control (RBAC), security audit logging, and zero-trust telemetry across cloud services.',
+            text: 'Aegis Identity is an enterprise workforce directory and access governance platform that provides centralized role-based access control (RBAC), security audit logging, and zero-trust telemetry across cloud services.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How does Syntecxhub handle role-based access control?',
+          name: 'How does Aegis handle role-based access control?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Syntecxhub Identity manages permissions through 4 discrete hierarchical tiers: Admin, Manager, Editor, and Viewer, with server-side validation enforced on every NestJS REST endpoint.',
+            text: 'Aegis Identity manages permissions through 4 discrete hierarchical tiers: Admin, Manager, Editor, and Viewer, with server-side validation enforced on every NestJS REST endpoint.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Is Syntecxhub Identity free and open source?',
+          name: 'Is Aegis Identity free and open source?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, Syntecxhub Identity is free, open source, and self-hostable with support for Docker, Vercel, Railway, and bare-metal Node.js environments connected to MongoDB.',
+            text: 'Yes, Aegis Identity is free, open source, and self-hostable with support for Docker, Vercel, Railway, and bare-metal Node.js environments connected to MongoDB.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Where can I access the Syntecxhub Identity REST API?',
+          name: 'Where can I access the Aegis Identity REST API?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The Syntecxhub Identity REST API is fully documented via interactive Swagger / OpenAPI specification available at the /api-docs route.',
+            text: 'The Aegis Identity REST API is fully documented via interactive Swagger / OpenAPI specification available at the /api-docs route.',
           },
         },
       ],
@@ -136,9 +136,9 @@ useHead({
 <template>
   <!-- Invisible SEO semantic container for AI answer crawlers -->
   <div aria-hidden="true" class="sr-only">
-    <h2>Syntecxhub Identity Platform Overview</h2>
+    <h2>Aegis Identity Platform Overview</h2>
     <p>
-      Syntecxhub Identity is an enterprise IAM solution featuring automated user
+      Aegis Identity is an enterprise IAM solution featuring automated user
       management, zero-trust telemetry, and multi-department governance.
     </p>
   </div>

@@ -13,7 +13,7 @@ export default (): AppConfiguration => ({
   nodeEnv: process.env.NODE_ENV || 'development',
   port: parseInt(process.env.PORT || '4001', 10),
   mongodbUri:
-    process.env.MONGODB_URI || 'mongodb://localhost:27017/syntecxhub_platform',
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/aegis_identity_db',
   corsOrigin:
     process.env.CORS_ORIGIN ||
     'http://localhost:3001,http://127.0.0.1:3001,http://localhost:3000,http://127.0.0.1:3000',

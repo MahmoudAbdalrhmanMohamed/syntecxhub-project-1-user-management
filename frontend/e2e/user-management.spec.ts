@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 
-test.describe('Syntecxhub Project 1 — User Management System', () => {
+test.describe('Aegis Identity — User Management System', () => {
   const screenshotsDir = path.resolve(process.cwd(), 'e2e-screenshots');
 
   test.beforeAll(() => {
@@ -16,7 +16,7 @@ test.describe('Syntecxhub Project 1 — User Management System', () => {
     await page.waitForLoadState('networkidle');
 
     // Title and Topbar
-    await expect(page).toHaveTitle(/Syntecxhub/);
+    await expect(page).toHaveTitle(/Aegis/);
     const heading = page.locator('h1, h2').first();
     await expect(heading).toBeVisible();
 
@@ -78,7 +78,7 @@ test.describe('Syntecxhub Project 1 — User Management System', () => {
 
     // Form fields verification
     await expect(page.locator('input[placeholder*="Nadia"]').or(page.locator('input[placeholder*="e.g."]'))).toBeVisible();
-    await expect(page.locator('input[placeholder*="syntecxhub"]')).toBeVisible();
+    await expect(page.locator('input[placeholder*="aegisauth"]')).toBeVisible();
 
     // Take screenshot of Create User Modal
     await page.screenshot({

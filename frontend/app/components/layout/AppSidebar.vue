@@ -69,13 +69,13 @@ const toggleTheme = () => {
         to="/"
         class="flex items-center min-w-0"
         :class="uiStore.sidebarCollapsed ? 'justify-center' : 'gap-3'"
-        :title="uiStore.sidebarCollapsed ? 'Syntecxhub IAM' : undefined"
+        :title="uiStore.sidebarCollapsed ? 'Aegis IAM' : undefined"
       >
         <BrandProjectLogo :size="'md'" />
         <div v-if="!uiStore.sidebarCollapsed" class="min-w-0">
           <div class="flex items-center gap-1.5">
             <span class="truncate text-sm font-bold tracking-tight text-slate-900 dark:text-white block">
-              Syntecxhub
+              Aegis
             </span>
             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
               IAM

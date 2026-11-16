@@ -7,7 +7,7 @@ import type {
   UserStatus,
 } from '#shared/types/api';
 
-export const useUsersStore = defineStore('syntecxhub-users', () => {
+export const useUsersStore = defineStore('aegis-users', () => {
   const api = useApiClient();
 
   const items = ref<UserRecord[]>([]);

@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const BACKEND_ROOT = path.resolve(__dirname, '..');
 const PROJECT_ROOT = path.resolve(BACKEND_ROOT, '..');
 
-test('Project 1 (Syntecxhub Project 1 — User Management System) Standalone Structure & Strict TypeScript Verification', () => {
+test('Project 1 (Aegis Identity — Zero-Trust Workforce Access Governance) Standalone Structure & Strict TypeScript Verification', () => {
   const required = [
     'backend/package.json',
     'backend/tsconfig.json',

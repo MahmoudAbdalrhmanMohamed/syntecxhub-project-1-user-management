@@ -63,7 +63,7 @@ defineProps<{
     <div v-if="showText" class="min-w-0">
       <div class="flex items-center gap-1.5">
         <span class="truncate text-sm font-bold tracking-tight text-slate-900 dark:text-white block">
-          Syntecxhub
+          Aegis
         </span>
         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
           IAM

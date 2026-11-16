@@ -54,15 +54,15 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'dark',
     fallback: 'dark',
-    storageKey: 'syntecxhub-color-mode',
+    storageKey: 'aegis-color-mode',
   },
 
   runtimeConfig: {
-    internalApiSecret: process.env.NUXT_INTERNAL_API_SECRET || 'syntecxhub-internal-ssr-key',
+    internalApiSecret: process.env.NUXT_INTERNAL_API_SECRET || 'aegis-internal-ssr-key',
     public: {
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://localhost:4001/api',
       backendOrigin: process.env.NUXT_PUBLIC_BACKEND_ORIGIN || 'http://localhost:4001',
-      appName: 'Syntecxhub Identity',
+      appName: 'Aegis Identity',
       appVersion: '1.0.0',
     },
   },
@@ -72,7 +72,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      titleTemplate: '%s — Syntecxhub Identity',
+      titleTemplate: '%s — Aegis Identity',
       title: 'Workforce Directory & IAM Governance',
       meta: [
         { charset: 'utf-8' },
@@ -81,17 +81,17 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Syntecxhub Identity — Enterprise Access Governance, Workforce Directory & IAM Security Telemetry.',
+            'Aegis Identity — Enterprise Access Governance, Workforce Directory & IAM Security Telemetry.',
         },
         { name: 'keywords', content: 'IAM, User Management, Access Governance, RBAC, Zero-Trust Directory, NestJS User API, Nuxt 4' },
-        { name: 'author', content: 'Syntecxhub Enterprise' },
+        { name: 'author', content: 'Aegis Security Systems' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
         { name: 'theme-color', content: '#0A0E1A' },
 
         // Google Search Console & Webmaster Verification
-        { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'syntecxhub-identity-gsc-verification-token' },
-        { name: 'msvalidate.01', content: process.env.NUXT_PUBLIC_BING_SITE_VERIFICATION || 'syntecxhub-identity-bing-verification-token' },
-        { name: 'yandex-verification', content: process.env.NUXT_PUBLIC_YANDEX_SITE_VERIFICATION || 'syntecxhub-identity-yandex-verification-token' },
+        { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'aegis-identity-gsc-verification-token' },
+        { name: 'msvalidate.01', content: process.env.NUXT_PUBLIC_BING_SITE_VERIFICATION || 'aegis-identity-bing-verification-token' },
+        { name: 'yandex-verification', content: process.env.NUXT_PUBLIC_YANDEX_SITE_VERIFICATION || 'aegis-identity-yandex-verification-token' },
 
         // Geographic (GEO) Meta Tags
         { name: 'geo.region', content: 'US-CA' },
@@ -101,23 +101,23 @@ export default defineNuxtConfig({
 
         // OpenGraph (SEO / Social)
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'Syntecxhub Identity' },
-        { property: 'og:title', content: 'Syntecxhub Identity — Enterprise Access Governance & Workforce Directory' },
+        { property: 'og:site_name', content: 'Aegis Identity' },
+        { property: 'og:title', content: 'Aegis Identity — Enterprise Access Governance & Workforce Directory' },
         { property: 'og:description', content: 'Centralized workforce directory, real-time role governance (RBAC), and zero-trust audit telemetry for modern cloud infrastructures.' },
-        { property: 'og:url', content: 'https://identity.syntecxhub.com/' },
-        { property: 'og:image', content: 'https://identity.syntecxhub.com/favicon.svg' },
+        { property: 'og:url', content: 'https://identity.aegisauth.io/' },
+        { property: 'og:image', content: 'https://identity.aegisauth.io/favicon.svg' },
         { property: 'og:locale', content: 'en_US' },
 
         // Twitter Card (SEO / Social)
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@syntecxhub' },
-        { name: 'twitter:creator', content: '@syntecxhub' },
-        { name: 'twitter:title', content: 'Syntecxhub Identity — Enterprise Access Governance & Directory' },
+        { name: 'twitter:site', content: '@aegisidentity' },
+        { name: 'twitter:creator', content: '@aegisidentity' },
+        { name: 'twitter:title', content: 'Aegis Identity — Enterprise Access Governance & Directory' },
         { name: 'twitter:description', content: 'Workforce directory, role governance, and zero-trust security telemetry platform.' },
-        { name: 'twitter:image', content: 'https://identity.syntecxhub.com/favicon.svg' },
+        { name: 'twitter:image', content: 'https://identity.aegisauth.io/favicon.svg' },
       ],
       link: [
-        { rel: 'canonical', href: 'https://identity.syntecxhub.com/' },
+        { rel: 'canonical', href: 'https://identity.aegisauth.io/' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'alternate icon', href: '/favicon.ico' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

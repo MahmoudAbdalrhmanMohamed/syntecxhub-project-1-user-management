@@ -19,7 +19,7 @@ export class CreateUserDto {
   @MaxLength(100, { message: 'Full name cannot exceed 100 characters' })
   fullName: string;
 
-  @ApiProperty({ example: 'nadia.elmasry@syntecxhub.io', description: 'Unique work email address' })
+  @ApiProperty({ example: 'nadia.elmasry@aegisauth.io', description: 'Unique work email address' })
   @IsEmail({}, { message: 'Please provide a valid email address' })
   @IsNotEmpty({ message: 'Email address is required' })
   email: string;
