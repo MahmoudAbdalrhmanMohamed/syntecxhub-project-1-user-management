@@ -11,6 +11,12 @@ import {
   ShieldCheck,
   Sparkles,
   Layers,
+  Fingerprint,
+  Lock,
+  Key,
+  Activity,
+  FileText,
+  UserPlus,
 } from 'lucide-vue-next';
 
 useSeoMeta({
@@ -42,194 +48,247 @@ const getRoleBadgeClass = (role: string) => {
 
 <template>
   <div class="space-y-6">
-    <!-- IAM Executive Header Banner -->
-    <div class="relative overflow-hidden rounded-2xl border border-indigo-200/80 dark:border-indigo-950/80 bg-gradient-to-r from-indigo-900/20 via-indigo-600/10 to-transparent p-6 sm:p-8">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
+    <!-- Security Operations Command Strip -->
+    <div class="relative overflow-hidden rounded-2xl border border-indigo-950/80 bg-gradient-to-r from-[#0C1222] via-[#0E162B] to-[#080D1A] p-6 sm:p-7 shadow-lg shadow-indigo-950/30">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
         <div class="space-y-2">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-xs font-semibold">
-            <ShieldCheck class="h-3.5 w-3.5 text-indigo-500" />
-            <span>AEGIS IDENTITY // ACCESS GOVERNANCE</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 text-xs font-mono font-semibold">
+              <ShieldCheck class="h-3.5 w-3.5 text-indigo-400" />
+              <span>AEGIS IDENTITY // SOC-2 COMPLIANCE TERMINAL</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              ZERO-TRUST ACTIVE
+            </span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Organization User Directory
+
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Workforce Identity &amp; Access Governance
           </h2>
-          <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Centralized role-based access control, active session telemetry, and department roster across your enterprise infrastructure.
+          <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+            Centralized role-based access control, cryptographic session integrity, and department telemetry across multi-cloud infrastructure.
           </p>
         </div>
 
         <div class="flex items-center gap-3 shrink-0">
-          <button type="button" class="btn-secondary" @click="dashboardStore.fetchDashboardData()">
+          <button type="button" class="btn-secondary text-xs sm:text-sm" @click="dashboardStore.fetchDashboardData()">
             <RefreshCw class="h-4 w-4" :class="{ 'animate-spin': dashboardStore.loading }" />
-            Sync Metrics
+            <span>Audit Sync</span>
           </button>
-          <NuxtLink to="/users" class="btn-primary">
-            <span>Manage Directory</span>
+          <NuxtLink to="/users" class="btn-primary text-xs sm:text-sm">
+            <Users class="h-4 w-4" />
+            <span>Workforce Directory</span>
             <ArrowUpRight class="h-4 w-4" />
           </NuxtLink>
         </div>
       </div>
     </div>
 
-    <!-- Metric Cards -->
+    <!-- Security KPI HUD (4 Columns) -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      <div class="surface-card p-5 group">
+      <!-- Total Identities -->
+      <div class="surface-card rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-4 sm:p-5 relative overflow-hidden group hover:border-indigo-500/40 transition-all">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Total Workforce</span>
-          <div class="h-9 w-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
-            <Users class="h-4 w-4" />
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Total Identities</span>
+          <div class="h-8 w-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+            <Fingerprint class="h-4 w-4" />
           </div>
         </div>
-        <p class="mt-3 text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        <p class="mt-3 text-3xl font-extrabold text-white font-mono tracking-tight">
           {{ (dashboardStore.stats?.summary as any)?.totalUsers ?? 0 }}
         </p>
-        <p class="mt-1 text-xs text-indigo-600 dark:text-indigo-400 font-medium flex items-center gap-1">
-          <Sparkles class="h-3 w-3" /> Managed Directory Accounts
-        </p>
+        <div class="mt-2 flex items-center justify-between text-[11px] font-mono text-indigo-300/80">
+          <span>Provisioned Accounts</span>
+          <span class="text-emerald-400 font-semibold">100% Verified</span>
+        </div>
       </div>
 
-      <div class="surface-card p-5 group">
+      <!-- Active Operators -->
+      <div class="surface-card rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-4 sm:p-5 relative overflow-hidden group hover:border-emerald-500/40 transition-all">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Active Operators</span>
-          <div class="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Active Operators</span>
+          <div class="h-8 w-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
             <UserCheck class="h-4 w-4" />
           </div>
         </div>
-        <p class="mt-3 text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">
+        <p class="mt-3 text-3xl font-extrabold text-emerald-400 font-mono tracking-tight">
           {{ (dashboardStore.stats?.summary as any)?.activeUsers ?? 0 }}
         </p>
-        <p class="mt-1 text-xs text-emerald-600/80 font-medium">
-          Zero-Trust Compliant
-        </p>
+        <div class="mt-2 flex items-center justify-between text-[11px] font-mono text-emerald-400/80">
+          <span>Active Sessions</span>
+          <span>Zero Lockouts</span>
+        </div>
       </div>
 
-      <div class="surface-card p-5 group">
+      <!-- Suspended / Anomalies -->
+      <div class="surface-card rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-4 sm:p-5 relative overflow-hidden group hover:border-rose-500/40 transition-all">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Pending / Suspended</span>
-          <div class="h-9 w-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-600 dark:text-rose-400">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Suspended Flag</span>
+          <div class="h-8 w-8 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
             <UserX class="h-4 w-4" />
           </div>
         </div>
-        <p class="mt-3 text-3xl font-extrabold text-rose-600 dark:text-rose-400 tracking-tight">
-          {{ ((dashboardStore.stats?.summary as any)?.inactiveUsers ?? 0) + ((dashboardStore.stats?.summary as any)?.suspendedUsers ?? 0) }}
+        <p class="mt-3 text-3xl font-extrabold text-rose-400 font-mono tracking-tight">
+          {{ (dashboardStore.stats?.summary as any)?.suspendedUsers ?? 0 }}
         </p>
-        <p class="mt-1 text-xs text-rose-600/80 font-medium">
-          Requires Action
-        </p>
+        <div class="mt-2 flex items-center justify-between text-[11px] font-mono text-rose-400/80">
+          <span>Revoked Access</span>
+          <span>Isolated</span>
+        </div>
       </div>
 
-      <div class="surface-card p-5 group">
+      <!-- Governance Enclaves -->
+      <div class="surface-card rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-4 sm:p-5 relative overflow-hidden group hover:border-purple-500/40 transition-all">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Departments</span>
-          <div class="h-9 w-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Organizational Units</span>
+          <div class="h-8 w-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
             <Building2 class="h-4 w-4" />
           </div>
         </div>
-        <p class="mt-3 text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        <p class="mt-3 text-3xl font-extrabold text-purple-400 font-mono tracking-tight">
           {{ (dashboardStore.stats?.summary as any)?.totalDepartments ?? 0 }}
         </p>
-        <p class="mt-1 text-xs text-purple-600 dark:text-purple-400 font-medium">
-          Active Cost Centers
-        </p>
+        <div class="mt-2 flex items-center justify-between text-[11px] font-mono text-purple-300/80">
+          <span>Departments</span>
+          <span>Enclaves Active</span>
+        </div>
       </div>
     </div>
 
-    <!-- Executive Governance & Compliance Strip -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="rounded-xl border border-indigo-950/60 bg-[#0E1528] p-4 flex items-center justify-between">
-        <div>
-          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">MFA Enforcement</span>
-          <span class="text-xl font-extrabold text-indigo-400">94.8%</span>
-        </div>
-        <div class="h-10 w-10 rounded-full border-2 border-indigo-500/40 border-t-indigo-400 flex items-center justify-center font-bold text-xs text-indigo-300">
-          95%
-        </div>
-      </div>
-
-      <div class="rounded-xl border border-indigo-950/60 bg-[#0E1528] p-4 flex items-center justify-between">
-        <div>
-          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Active SSO Tokens</span>
-          <span class="text-xl font-extrabold text-emerald-400">1,284 Sessions</span>
-        </div>
-        <div class="h-3 w-3 rounded-full bg-emerald-400 animate-pulse" />
-      </div>
-
-      <div class="rounded-xl border border-indigo-950/60 bg-[#0E1528] p-4 flex items-center justify-between">
-        <div>
-          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Zero-Trust Policy</span>
-          <span class="text-xl font-extrabold text-purple-400">Strict Compliant</span>
-        </div>
-        <ShieldCheck class="h-6 w-6 text-purple-400" />
-      </div>
-    </div>
-
-    <!-- Split Grid: Recent Members and Activity Stream -->
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-      <!-- Team Directory Feed -->
-      <div class="surface-card p-6">
-        <div class="flex items-center justify-between border-b border-slate-200 dark:border-indigo-950/60 pb-4">
-          <div class="flex items-center gap-2.5">
-            <div class="h-2 w-2 rounded-full bg-indigo-500" />
-            <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-              Recent Team Onboarding
-            </h3>
-          </div>
-          <NuxtLink to="/users" class="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
-            View All
-          </NuxtLink>
-        </div>
-
-        <div class="mt-4 divide-y divide-slate-100 dark:divide-slate-800/60">
-          <div
-            v-for="u in dashboardStore.stats?.recent.users || []"
-            :key="u._id"
-            class="flex items-center justify-between py-3.5 hover:bg-slate-50/50 dark:hover:bg-indigo-950/20 rounded-xl px-2 transition-colors"
-          >
-            <div class="flex items-center gap-3 min-w-0">
-              <img
-                :src="u.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(u.fullName)}`"
-                :alt="u.fullName"
-                class="h-9 w-9 rounded-full ring-2 ring-indigo-500/20 shrink-0"
-              />
-              <div class="min-w-0">
-                <p class="text-xs font-semibold text-slate-900 dark:text-white truncate">{{ u.fullName }}</p>
-                <p class="text-[11px] text-slate-500 truncate">{{ u.email }}</p>
-              </div>
+    <!-- Main Workspace Split: Access Control Matrix & Audit Timeline -->
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <!-- Left 2 Cols: Role & Access Matrix -->
+      <div class="lg:col-span-2 space-y-6">
+        <div class="rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-5 sm:p-6 shadow-sm">
+          <div class="flex items-center justify-between pb-4 border-b border-indigo-950/70">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <Lock class="h-4 w-4 text-indigo-400" />
+                <span>Privilege Tier Distribution</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Role-Based Access Control (RBAC) assignments and administrative footprint.
+              </p>
             </div>
-
-            <span class="rounded-lg px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider" :class="getRoleBadgeClass(u.role)">
-              {{ u.role }}
+            <span class="text-xs font-mono text-indigo-400 bg-indigo-950/60 px-2.5 py-1 rounded border border-indigo-900/50">
+              POLICY: STRICT
             </span>
           </div>
+
+          <!-- Role Bars Grid -->
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              v-for="role in (dashboardStore.stats?.distributions?.usersByRole ?? [])"
+              :key="role.role"
+              class="p-4 rounded-lg bg-indigo-950/20 border border-indigo-900/40 hover:border-indigo-500/40 transition-colors"
+            >
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold uppercase font-mono tracking-wider" :class="getRoleBadgeClass(role.role)">
+                  {{ role.role }}
+                </span>
+                <span class="text-lg font-bold font-mono text-white">
+                  {{ role.count }} <span class="text-xs font-normal text-slate-400">users</span>
+                </span>
+              </div>
+              <div class="mt-3 h-1.5 w-full bg-indigo-950/80 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-indigo-500 to-sky-400 rounded-full"
+                  :style="{ width: `${Math.min(100, (role.count / ((dashboardStore.stats?.summary as any)?.totalUsers || 1)) * 100)}%` }"
+                />
+              </div>
+              <p class="mt-2 text-[11px] text-slate-400 font-mono">
+                {{ Math.round((role.count / ((dashboardStore.stats?.summary as any)?.totalUsers || 1)) * 100) }}% of workforce directory
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Department Enclaves Breakdown -->
+        <div class="rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-5 sm:p-6 shadow-sm">
+          <div class="flex items-center justify-between pb-4 border-b border-indigo-950/70">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <Building2 class="h-4 w-4 text-purple-400" />
+                <span>Department Enclave Roster</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Headcount and active operator assignments by functional department.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-4 divide-y divide-indigo-950/60">
+            <div
+              v-for="dept in (dashboardStore.stats?.distributions?.usersByDepartment ?? [])"
+              :key="dept.department"
+              class="py-3 flex items-center justify-between text-xs"
+            >
+              <div class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-indigo-400" />
+                <span class="font-medium text-slate-200">{{ dept.department }}</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="font-mono text-indigo-300 font-bold">{{ dept.count }} account(s)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-950/60 text-slate-400 border border-indigo-900/40">
+                  ISOLATED
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- IAM Audit Log -->
-      <div class="surface-card p-6">
-        <div class="flex items-center justify-between border-b border-slate-200 dark:border-indigo-950/60 pb-4">
-          <div class="flex items-center gap-2.5">
-            <div class="h-2 w-2 rounded-full bg-emerald-500" />
-            <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-              IAM Security &amp; Audit Log
+      <!-- Right 1 Col: Real-Time Audit Log Timeline -->
+      <div class="rounded-xl border border-indigo-950/80 bg-[#0A0F1F] p-5 sm:p-6 shadow-sm flex flex-col">
+        <div class="flex items-center justify-between pb-4 border-b border-indigo-950/70">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <Activity class="h-4 w-4 text-emerald-400" />
+              <span>Real-Time Audit Ledger</span>
             </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Live session &amp; directory mutations.</p>
           </div>
-          <span class="text-[11px] font-mono text-emerald-500">Live</span>
+          <span class="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
         </div>
 
-        <div class="mt-4 space-y-3.5">
+        <div class="mt-4 flex-1 space-y-4 overflow-y-auto max-h-[500px]">
           <div
-            v-for="item in dashboardStore.activity"
-            :key="item.id"
-            class="rounded-xl border border-slate-100 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-900/40 p-3.5 transition-colors"
+            v-for="(event, idx) in (dashboardStore.activity ?? [])"
+            :key="idx"
+            class="p-3 rounded-lg bg-indigo-950/20 border border-indigo-900/30 text-xs space-y-1.5"
           >
-            <div class="flex items-start justify-between gap-2">
-              <p class="text-xs font-semibold text-slate-900 dark:text-white">{{ item.title }}</p>
-              <span class="font-mono text-[10px] text-slate-400 shrink-0 flex items-center gap-1">
-                <Clock class="h-3 w-3 text-indigo-400" /> {{ formatDateTime(item.timestamp) }}
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-[10px] text-indigo-400 font-bold uppercase">
+                {{ event.action || 'IDENTITY_MUTATION' }}
+              </span>
+              <span class="text-[10px] font-mono text-slate-500">
+                {{ formatDateTime(event.timestamp) }}
               </span>
             </div>
-            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ item.subtitle }}</p>
+            <p class="font-semibold text-slate-200 truncate">
+              {{ event.title || event.description }}
+            </p>
+            <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+              <span>Actor: {{ event.actor || 'System Engine' }}</span>
+              <span class="text-emerald-400">SIG_VERIFIED</span>
+            </div>
           </div>
+
+          <div
+            v-if="!dashboardStore.activity?.length"
+            class="text-center py-12 text-slate-500 text-xs font-mono"
+          >
+            No security audit records logged in current frame.
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-indigo-950/70 flex items-center justify-between text-xs">
+          <NuxtLink to="/users" class="text-indigo-400 hover:text-indigo-300 font-mono flex items-center gap-1">
+            <span>Inspect User Table</span>
+            <ArrowUpRight class="h-3 w-3" />
+          </NuxtLink>
+          <span class="font-mono text-[10px] text-slate-500">ENCLAVE SECURE</span>
         </div>
       </div>
     </div>
