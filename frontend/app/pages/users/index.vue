@@ -192,7 +192,7 @@ const handleDeleteUser = async (user: UserRecord) => {
     </div>
 
     <!-- Department Filter Tabs Ribbon (Enterprise Workspace Pattern) -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-1 select-none">
+    <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-1 select-none">
       <button
         v-for="dept in ['All Departments', 'Engineering', 'Product', 'Design', 'Operations', 'Security']"
         :key="dept"
@@ -302,7 +302,7 @@ const handleDeleteUser = async (user: UserRecord) => {
         />
       </div>
 
-      <div v-else class="overflow-x-auto">
+      <div v-else class="overflow-x-auto custom-scrollbar">
         <table class="w-full text-left border-collapse">
           <thead>
             <tr
@@ -623,7 +623,7 @@ const handleDeleteUser = async (user: UserRecord) => {
         @click.self="inspectedUser = null"
       >
         <div
-          class="h-full w-full max-w-md bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-6 overflow-y-auto flex flex-col justify-between shadow-2xl"
+          class="h-full w-full max-w-md bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-6 overflow-y-auto custom-scrollbar flex flex-col justify-between shadow-2xl"
         >
           <div class="space-y-6">
             <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
